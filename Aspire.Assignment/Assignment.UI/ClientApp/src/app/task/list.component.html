@@ -1,0 +1,32 @@
+<h1>Tasks</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Task</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th >Id</th>
+            <th >Title</th>
+            <th >Description</th>
+            <th >Status</th>
+            <th>created By</th>
+            <th> File Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{task.id}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.taskDescription}}</td>
+            <td>{{task.status}}</td>
+            <td>{{task.username}}</td>
+          <div class="mb-3"><button type="button" (click)="downloadFiles(task.fileName)"  class="btn btn-primary">
+                Download
+            </button>
+            </div>
+        </tr>
+        <tr *ngIf="!tasks">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
